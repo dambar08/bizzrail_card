@@ -19,7 +19,6 @@ RSpec.describe "cards/new", type: :view do
     render
 
     assert_select "form[action=?][method=?]", cards_path, "post" do
-
       assert_select "input[name=?]", "card[user_id]"
 
       assert_select "input[name=?]", "card[english_firstname]"
