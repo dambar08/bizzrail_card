@@ -1,0 +1,31 @@
+# This configuration is intended for development purpose, it's **your** responsibility to harden it for production
+name: bizzrail_card
+services:
+  redis:
+    image: redis:7.2.5
+    healthcheck:
+      test: redis-cli ping
+      interval: 1s
+      timeout: 3s
+      retries: 30
+    ports:
+      - 127.0.0.1:6379:6379
+    volumes:
+      - redis_data:/data
+  postgresql:
+    image: postgres:17.2
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER:-bizzrail_card}
+      - POSTGRES_HOST_AUTH_METHOD=trust
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U $${POSTGRES_USER:-bizzrail_card}']
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    ports:
+      - 127.0.0.1:5432:5432
+    volumes:
+      - bizzrail_card_postgres_data:/var/lib/postgresql/data/
+volumes:
+  redis_data:
+  bizzrail_card_postgres_data:

@@ -1,0 +1,13 @@
+<div>
+  <p>
+    Congratulations, <%= @user.email %>! You have created your first card!
+  </p>
+
+  <p>
+    <a
+      href="<%= card_url(@user) %>"
+      style="font-weight:bold;color:white;background:#4e57ef;padding: 12px 15px;border-radius:6px;text-decoration:none">
+      Check out your new card
+    </a>
+  </p>
+</div>

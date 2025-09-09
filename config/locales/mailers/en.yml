@@ -1,0 +1,5 @@
+---
+en:
+  mailers:
+    notify_mailer:
+      new_card: You just got a badge

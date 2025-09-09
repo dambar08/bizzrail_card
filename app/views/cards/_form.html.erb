@@ -1,0 +1,57 @@
+<%= form_with(model: card, class: "contents") do |form| %>
+  <% if card.errors.any? %>
+    <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-md mt-3">
+      <h2><%= pluralize(card.errors.count, "error") %> prohibited this card from being saved:</h2>
+
+      <ul class="list-disc ml-6">
+        <% card.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="my-5">
+    <%= form.label :english_firstname %>
+    <%= form.text_field :english_firstname, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": card.errors[:english_firstname].none?, "border-red-400 focus:outline-red-600": card.errors[:english_firstname].any?}] %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :english_lastname %>
+    <%= form.text_field :english_lastname, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": card.errors[:english_lastname].none?, "border-red-400 focus:outline-red-600": card.errors[:english_lastname].any?}] %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :chinese_name %>
+    <%= form.text_field :chinese_name, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": card.errors[:chinese_name].none?, "border-red-400 focus:outline-red-600": card.errors[:chinese_name].any?}] %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :title %>
+    <%= form.text_field :title, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": card.errors[:title].none?, "border-red-400 focus:outline-red-600": card.errors[:title].any?}] %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :chinese %>
+    <%= form.text_field :chinese, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": card.errors[:chinese].none?, "border-red-400 focus:outline-red-600": card.errors[:chinese].any?}] %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :company_name %>
+    <%= form.text_field :company_name, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": card.errors[:company_name].none?, "border-red-400 focus:outline-red-600": card.errors[:company_name].any?}] %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :company_address %>
+    <%= form.text_field :company_address, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": card.errors[:company_address].none?, "border-red-400 focus:outline-red-600": card.errors[:company_address].any?}] %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :chinese_company_address %>
+    <%= form.text_field :chinese_company_address, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": card.errors[:chinese_company_address].none?, "border-red-400 focus:outline-red-600": card.errors[:chinese_company_address].any?}] %>
+  </div>
+
+  <div class="inline">
+    <%= form.submit class: "w-full sm:w-auto rounded-md px-3.5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white inline-block font-medium cursor-pointer" %>
+  </div>
+<% end %>
